@@ -13,7 +13,7 @@ Some of these things include:
 * Supports multi-targeting
 * Supports continuous integration
 * Doesn't mandate a particular text editor or IDE
-* Let's me automate away some of the annoying boilerplate stuff
+* Lets me automate away some of the annoying boilerplate stuff
 * Extensible
 
 After some experimentation I've determined that, so far, the easiest path

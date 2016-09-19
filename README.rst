@@ -26,3 +26,10 @@ the hood for their build system. I'm really hoping it'll be easy to add custom b
 use custom libraries, and take or leave the 3rd party frameworks as I see fit.
 I'll be experimenting with a few different boards and projects to test the
 suitability of PlatformIO for both hobbyist and commercial applications.
+
+Notes
+-----
+
+* When uploading to target it looks like sudo is necessary at the moment
+
+``$ sudo platformio run --target upload ``

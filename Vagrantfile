@@ -53,36 +53,39 @@ Vagrant.configure(2) do |config|
    vb.customize ['modifyvm', :id, '--usb', 'on']
    vb.customize ['modifyvm', :id, '--usbehci', 'on']
    vb.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'STLink', '--vendorid', '0x0483', '--productid', '0x3748']
-   #vb.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'Olimex OpenOCD JTAG ARM-USB-TINY-H', '--vendorid', '0x15BA', '--productid', '0x002a']
-   #vb.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'Olimex OpenOCD JTAG ARM-USB-OCD-H', '--vendorid', '0x15BA', '--productid', '0x002b']
-   #vb.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'Olimex OpenOCD JTAG', '--vendorid', '0x15BA', '--productid', '0x0003']
-   #vb.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'AVRISP mkII', '--vendorid', '0x03EB', '--productid', '0x2104']
-   #vb.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'FTDI serial adapter', '--vendorid', '0x0403', '--productid', '0x6001']
+   vb.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'Olimex OpenOCD JTAG ARM-USB-TINY-H', '--vendorid', '0x15BA', '--productid', '0x002a']
+   vb.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'Olimex OpenOCD JTAG ARM-USB-OCD-H', '--vendorid', '0x15BA', '--productid', '0x002b']
+   vb.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'Olimex OpenOCD JTAG', '--vendorid', '0x15BA', '--productid', '0x0003']
+   vb.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'AVRISP mkII', '--vendorid', '0x03EB', '--productid', '0x2104']
+   vb.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'FTDI serial adapter', '--vendorid', '0x0403', '--productid', '0x6001']
   end
 
-  # ############################################################
-  #   # Oh My ZSH Install section - sets up a nice shell environment
-  #
-  #   # Install git and zsh prerequisites
-  #   config.vm.provision :shell, inline: "sudo apt-get update -qq"
-  #   config.vm.provision :shell, inline: "apt-get -y install git"
-  #   config.vm.provision :shell, inline: "apt-get -y install zsh"
-  #
-  #   # Clone Oh My Zsh from the git repo
-  #   config.vm.provision :shell, privileged: false,
-  #     inline: "git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh"
-  #
-  #   # Copy in the default .zshrc config file
-  #   config.vm.provision :shell, privileged: false,
-  #     inline: "cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc"
-  #
-  #   # Change the vagrant user's shell to use zsh
-  #   config.vm.provision :shell, inline: "chsh -s /bin/zsh vagrant"
-  #   ############################################################
+  ############################################################
+    # Oh My ZSH Install section - sets up a nice shell environment
+
+    # Install git and zsh prerequisites
+    config.vm.provision :shell, inline: "sudo apt-get update -qq"
+    config.vm.provision :shell, inline: "apt-get -y install git"
+    config.vm.provision :shell, inline: "apt-get -y install zsh"
+
+    # Clone Oh My Zsh from the git repo
+    config.vm.provision :shell, privileged: false,
+      inline: "git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh"
+
+    # Copy in the default .zshrc config file
+    config.vm.provision :shell, privileged: false,
+      inline: "cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc"
+
+    # Change the vagrant user's shell to use zsh
+    config.vm.provision :shell, inline: "chsh -s /bin/zsh vagrant"
+    ############################################################
 
   # installs the basic development packages and requirements (python, cmake, etc)
   config.vm.provision :shell, path: "install-base-tools.sh"
 
+  #install platformio
+  config.vm.provision :shell, path: "install-platformio.sh"
+
   #installs the arm toolchain and
-  config.vm.provision :shell, privileged: false, path: "install-arm-tools.sh"
+  #config.vm.provision :shell, privileged: false, path: "install-arm-tools.sh"
 end

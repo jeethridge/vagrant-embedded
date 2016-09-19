@@ -14,6 +14,7 @@ cd stlink/
 cmake -DCMAKE_BUILD_TYPE=Debug
 make
 
+
 #allow user access to stlink usb devices by copying the udev rules from stlink
 sudo cp /home/vagrant/stlink/etc/udev/rules.d/* /etc/udev/rules.d
 sudo udevadm control --reload-rules

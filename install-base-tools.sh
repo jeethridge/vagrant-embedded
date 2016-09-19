@@ -13,9 +13,16 @@ libusb-1.0-0 libusb-1.0-0-dev libftdi1 libftdi-dev git libc6:i386 \
 libncurses5:i386 libstdc++6:i386 cowsay figlet language-pack-en \
 cmake
 
+#install cpputest
+git clone https://github.com/cpputest/cpputest /home/vagrant/cpputest
+cd /home/vagrant/cpputest/cpputest_build/
+cmake ..
+make
+sudo make install
+#export CPPUTEST_HOME = /home/vagrant/cpputest/cpputest_build/src/CppUTest
 #sudo locale-gen UTF-8
 
 # Install python
-# sudo apt-get install -y python2.7 python-numpy python-scipy python-matplotlib python-pip python-dev
-# sudo pip install --upgrade pip
-# sudo pip install --upgrade virtualenv
+sudo apt-get install -y python2.7 python-numpy python-scipy python-matplotlib python-pip python-dev
+sudo pip install --upgrade pip
+sudo pip install --upgrade virtualenv

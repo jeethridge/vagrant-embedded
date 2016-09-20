@@ -88,4 +88,8 @@ Vagrant.configure(2) do |config|
 
   #installs the arm toolchain and
   #config.vm.provision :shell, privileged: false, path: "install-arm-tools.sh"
+
+  #add selected projects to the synced_folder
+  config.vm.provision :shell, path: "clone_projects.sh"
+
 end

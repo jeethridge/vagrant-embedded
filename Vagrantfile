@@ -8,7 +8,7 @@ Vagrant.configure(2) do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "halvards/lubuntu1604"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -40,14 +40,14 @@ Vagrant.configure(2) do |config|
   # Example for VirtualBox:
   #
   config.vm.provider "virtualbox" do |vb|
-   # Display the VirtualBox GUI when booting the machine
-   # vb.gui = true
+   # Display the GUI when booting the machine
+   vb.gui = true
 
    # Customize the amount of memory on the VM:
-   vb.memory = "2048"
+   vb.memory = "1024"
 
    # Use 2 CPUs
-   vb.cpus = 2
+   vb.cpus = 1
 
    # Adds filters for specific USB devices to the VM
    vb.customize ['modifyvm', :id, '--usb', 'on']

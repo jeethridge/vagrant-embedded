@@ -14,11 +14,11 @@ libncurses5:i386 libstdc++6:i386 cowsay figlet language-pack-en \
 cmake
 
 #install cpputest
-git clone https://github.com/cpputest/cpputest /home/vagrant/cpputest
-cd /home/vagrant/cpputest/cpputest_build/
-cmake ..
-make
-sudo make install
+#git clone https://github.com/cpputest/cpputest /home/vagrant/cpputest
+#cd /home/vagrant/cpputest/cpputest_build/
+#cmake ..
+#make
+#sudo make install
 #export CPPUTEST_HOME = /home/vagrant/cpputest/cpputest_build/src/CppUTest
 #sudo locale-gen UTF-8
 
